@@ -1,11 +1,11 @@
 import MovieList from "./MovieList";
 import WatchList from "./WatchList";
 
-export default function Main() {
+export default function Main({ movies, watchListMovies, isWatchListOpen }) {
   return (
     <main>
-      <MovieList />
-      <WatchList />
+      <WatchList movies={watchListMovies} isWatchListOpen={isWatchListOpen} />
+      <MovieList movies={movies} />
     </main>
   );
 }
