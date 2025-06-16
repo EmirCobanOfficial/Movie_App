@@ -1,12 +1,25 @@
+import { useState } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./components/Main";
+import { movie_list } from "./data";
 
 export default function App() {
+  const [movies, setMovies] = useState(movie_list);
+  const [watchListMovies, setWatchListMovies] = useState([]);
+  const [isWatchListOpen, setIsWatchListOpen] = useState(false);
+
   return (
     <>
-      <Header />
-      <Main />
+      <Header
+        watchListMovies={watchListMovies}
+        onSetIsWatchListOpen={setIsWatchListOpen}
+      />
+      <Main
+        movies={movies}
+        watchListMovies={watchListMovies}
+        isWatchListOpen={isWatchListOpen}
+      />
       <Footer />
     </>
   );
